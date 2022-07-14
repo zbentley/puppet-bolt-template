@@ -7,12 +7,5 @@ class unix_base {
     ['puppet', 'pxp-agent']:
       enable => false,
       ensure => 'stopped';
-    'ssh_agent':
-      ensure => running,
-      enable => true,
-      name     => $facts['os']['family'] ? {
-        'Darwin' => 'com.openssh.ssh-agent',
-        default => 'sshd',
-      };
   }
 }

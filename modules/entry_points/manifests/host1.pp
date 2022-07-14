@@ -5,11 +5,12 @@ class entry_points::host1 {
       include osx_base
   }
 
-  osx_login_item {
+  package {'dropbox':
+    provider => brewcask;
+  } -> osx_login_item {
     'Dropbox':
       ensure  => present,
-      path    => '/Applications/Dropbox.app',
-      require => Package['dropbox'];
+      path    => '/Applications/Dropbox.app';
   }
 
   # I like Dropbox on my desktop; if you don't, delete the below.

@@ -1,6 +1,7 @@
 ---
 name: template
-hiera-config: hiera.yaml
+# A few simple modules are included purely for example/basic-usage-demonstration purposes; all can be removed if you
+# would like to go without them:
 modules:
 - name: puppetlabs/accounts
   version_requirement: ">= 7.0.2"

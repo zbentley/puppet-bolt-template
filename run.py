@@ -23,10 +23,13 @@ def run(cmd):
 try:
     import yaml
 except ImportError:
-    print("Attempting to install pyyaml; ignore pip warnings (but not errors) below")
-    os.makedirs(os.path.join(SCRIPT_DIR, 'pip_installed'), exist_ok=True)
-    run([sys.executable, '-mpip', 'install', 'pyyaml', '-t', os.path.join(SCRIPT_DIR, 'pip_installed')])
-    import pip_installed.yaml as yaml
+    try:
+        import pip_installed.yaml as yaml
+    except ImportError:
+        print("Attempting to install pyyaml; ignore pip warnings (but not errors) below")
+        os.makedirs(os.path.join(SCRIPT_DIR, 'pip_installed'), exist_ok=True)
+        run([sys.executable, '-mpip', 'install', 'pyyaml', '-t', os.path.join(SCRIPT_DIR, 'pip_installed')])
+        import pip_installed.yaml as yaml
 
 
 @lru_cache()
@@ -67,6 +70,7 @@ def locked():
     with open(lock_path, 'w') as lockfh:
         fcntl.flock(lockfh, fcntl.LOCK_EX | fcntl.LOCK_NB)
         yield
+
 
 def main(args):
     assert args.target, "--target is required"
