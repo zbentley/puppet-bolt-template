@@ -1,0 +1,16 @@
+---
+name: template
+hiera-config: hiera.yaml
+modules:
+- name: puppetlabs/accounts
+  version_requirement: ">= 7.0.2"
+- name: thekevjames/homebrew
+  git: https://github.com/TheKevJames/puppet-homebrew
+  ref: 1.9.0
+  resolve: false
+- puppetlabs/vcsrepo
+- puppetlabs/git
+- name: zbentley/osx
+  git: https://github.com/zbentley/puppet-osx
+  ref: master
+save-rerun: false

@@ -1,0 +1,15 @@
+config:
+  transport: local
+groups:
+  - name: host1
+    targets:
+      - name: localhost
+  - name: host2
+    targets:
+      - name: primary
+        uri: 192.168.0.todo
+    config:
+      transport: ssh
+      ssh:
+        private-key: /path/to/private/key
+        user: root

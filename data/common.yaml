@@ -1,0 +1,8 @@
+---
+# Apt is implicitly invoked by multiple third-party modules in this project, so we can't manually instantiate it
+# with these parameters.
+apt::purge:
+  sources.list: true
+  sources.list.d: true
+# This is for demo/testing purposes:
+toplevel_key: hiera_is_alive
