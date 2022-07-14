@@ -3,7 +3,7 @@ plan template (
   String $user,
   TargetSpec $target
 ) {
-  # run_task('puppet_agent::install', $target, collection => 'puppet-nightly')
+  run_task('puppet_agent::install', $target, collection => 'puppet-nightly')
   apply_prep($target)
   $results = apply($target, _noop => $noop, _catch_errors => true) {
     class {'globals':

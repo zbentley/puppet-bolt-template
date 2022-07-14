@@ -4,7 +4,7 @@ This repo represents a minimal [Puppet Bolt](https://puppet.com/docs/bolt/latest
 
 ## How to use
 
-**This repo doesn't do much out of the box; it is intended for users to fork, customize, and edit for their personal use.
+**This repo doesn't do much out of the box; it is intended for users to fork, customize, and edit for their personal use.**
 
 This is a project skeleton, like the (much better) ones on [cookiecutter](https://github.com/cookiecutter/cookiecutter). It does a little bit out of the box (i.e. it can make a few simple changes on MacOS `localhost` targets), that's purely for demonstration purposes.
 
@@ -54,6 +54,10 @@ In addition to the above opinions and capabilities, this module does do a few th
 - Invocation must be performed on a MacOS host running MacOS 11 or better.
 - The [Homebrew](https://brew.sh/) package manager must be installed and working on the host.
 - Python 3.5 or better must be available on `PATH` with the command `python3`.
+
+### For Targets
+
+Hosts that Bolt will manage must be network-accessible via the settings configured in `inventory.yaml` (see the [bolt inventory documentation](https://puppet.com/docs/bolt/latest/inventory_files.html) for more info). This module has been tested to succesfully manage MacOS (ARM and x86), and Linux (Debian and Amazon Linux) hosts.
 
 ## Usage
 
