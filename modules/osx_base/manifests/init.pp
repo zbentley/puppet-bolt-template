@@ -10,14 +10,4 @@ class osx_base {
         ensure => symlink,
         target => '/Applications';
   }
-
-  service {
-    ['puppet', 'pxp-agent']:
-      enable => false,
-      ensure => 'stopped';
-    'ssh_agent':
-      ensure => running,
-      enable => true,
-      name     => 'com.openssh.ssh-agent';
-  }
 }
