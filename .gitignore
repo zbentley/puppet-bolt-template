@@ -110,7 +110,6 @@ modules/entry_points/files/antigone/shell_history_backup_081521.txt
 
 Puppetfile
 .task_cache.json
-report.txt
 
 # In case users locally pip-install pyyaml
 pip_installed

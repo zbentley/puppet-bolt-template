@@ -17,8 +17,6 @@ plan template (
         out::message("${log['level'].upcase}: ${log['source']} : ${log['message']}")
       }
     }
-    out::message('Bolt is done; writing result to report.txt')
-    file::write('report.txt', "${result.report}")
   }
   return $results
 }
