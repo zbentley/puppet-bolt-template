@@ -7,7 +7,7 @@ modules:
   version_requirement: ">= 7.0.2"
 - name: thekevjames/homebrew
   git: https://github.com/TheKevJames/puppet-homebrew
-  ref: 1.9.0
+  ref: master
   resolve: false
 - puppetlabs/vcsrepo
 - puppetlabs/git

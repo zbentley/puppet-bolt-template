@@ -14,6 +14,8 @@ class globals (String $workstation_user, String $target) {
         'HOMEBREW_NO_AUTO_UPDATE=1',
         'HOMEBREW_NO_INSTALL_CLEANUP=1',  # I like running cleanup myself, manually, rather than slowing down installs.
         "SDKROOT=${facts['osx_sdkroot']}",
+        # Note that you may need to override this to be unset or an older version for some binaries that assume it'll
+        # be an older version:
         "MACOSX_DEPLOYMENT_TARGET=${facts['os']['release']['major']}.${facts['os']['release']['major']}"
       ],
       group => "staff",
@@ -21,6 +23,10 @@ class globals (String $workstation_user, String $target) {
 
     Osx_default {
       user => $globals::workstation_user,
+    }
+    class { 'homebrew':
+      user         => $globals::workstation_user,
+      group => "staff",
     }
 
     Package {
